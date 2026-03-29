@@ -18,7 +18,7 @@ class RegisterView(APIView):
                 "username": user.username
             }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+#To update and get profile
 
 class ProfileView(APIView):
     permission_classes = [IsAuthenticated]
