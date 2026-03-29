@@ -187,6 +187,4 @@ python manage.py runserver
 
 ---
 
-## 👨‍💻 Author
 
-Samuel Lire
