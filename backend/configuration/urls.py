@@ -20,4 +20,5 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/queue/', include('apps.queues.urls')),
+    path('api/notifications/', include('apps.notifications.urls')),
 ]
