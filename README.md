@@ -122,10 +122,10 @@ WaitTime = PeopleInFront × AverageServiceTime
 queue-system/
 │
 ├── backend/
-│   ├── config/
+│   ├── configuration/
 │   ├── apps/
 │   │   ├── users/
-│   │   ├── queue/
+│   │   ├── queues/
 │   │   ├── services/
 │   │   ├── notifications/
 │   │   └── analytics/
