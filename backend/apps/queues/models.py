@@ -1,11 +1,12 @@
 from django.db import models
 from django.conf import settings
 from apps.services.models import Service
+from core.models import TimeStampedModel
 
 User = settings.AUTH_USER_MODEL
 
 
-class QueueEntry(models.Model):
+class QueueEntry(TimeStampedModel):
 
     STATUS_CHOICES = [
         ('waiting', 'Waiting'),
@@ -18,16 +19,13 @@ class QueueEntry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
 
-    position = models.IntegerField()
+    position = models.PositiveIntegerField()
 
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
         default='waiting'
     )
-
-    joined_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     # For snooze feature
     snooze_count = models.IntegerField(default=0)
@@ -39,4 +37,3 @@ class QueueEntry(models.Model):
     def __str__(self):
         return f"{self.user} - {self.service} - {self.status}"
 
-# Create your models here.
