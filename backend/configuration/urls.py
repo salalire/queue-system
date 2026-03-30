@@ -23,6 +23,7 @@ urlpatterns = [
     path('api/users/', include('apps.users.urls')),
     path('api/queue/', include('apps.queues.urls')),
     path('api/analytics/', include('apps.analytics.urls')),
+    path('api/notifications/', include('apps.notifications.urls')),
     path('api/token/', TokenObtainPairView.as_view()),
     path('api/token/refresh/', TokenRefreshView.as_view()),
 ]
