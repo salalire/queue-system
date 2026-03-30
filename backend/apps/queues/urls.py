@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import JoinQueueView
+from .views import QueueViewSet
 
 urlpatterns = [
-    path('join/', JoinQueueView.as_view(), name='join-queue'),
+    path('', QueueViewSet.as_view(), name='queue'),
 ]

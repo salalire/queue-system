@@ -16,6 +16,13 @@ from pathlib import Path
 #making python to find applications in apps folder
 import sys
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+INFOBIP_API_KEY = os.getenv('INFOBIP_API_KEY')
+INFOBIP_BASE_URL = os.getenv('INFOBIP_BASE_URL')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

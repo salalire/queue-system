@@ -14,6 +14,7 @@ class QueueEntry(TimeStampedModel):
         ('done', 'Done'),
         ('skipped', 'Skipped'),
         ('cancelled', 'Cancelled'),
+        ('called', 'CALLED')
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -27,10 +28,8 @@ class QueueEntry(TimeStampedModel):
         default='waiting'
     )
 
-    # For snooze feature
     snooze_count = models.IntegerField(default=0)
 
-    # For analytics
     started_at = models.DateTimeField(null=True, blank=True)
     completed_at = models.DateTimeField(null=True, blank=True)
 
