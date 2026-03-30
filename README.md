@@ -178,6 +178,12 @@ python manage.py runserver
 
 ---
 
+## .env file setup
+```.env
+INFOBIP_BASE_URL=https://your_unique_url.api.infobip.com
+INFOBIP_API_KEY=your_secret_key_here
+```
+
 ## 📌 Future Improvements
 
 * AI-based wait-time prediction
