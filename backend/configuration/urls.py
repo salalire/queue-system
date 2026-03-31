@@ -22,6 +22,7 @@ from apps.users.views import UserViewSet
 from apps.queues.views import QueueViewSet
 from apps.services.views import ServiceViewSet
 from apps.notifications.views import UserNotificationListView
+from apps.analytics.views import AnalyticsVewSet
 
 router = DefaultRouter()
 
@@ -29,6 +30,7 @@ router.register(r'users', UserViewSet, basename='user')
 router.register(r'queues', QueueViewSet, basename='queue')
 router.register(r'notification', UserNotificationListView, basename='notification')
 router.register(r'services', ServiceViewSet, basename='services')
+router.register(r'analytics', AnalyticsVewSet, basename='analytics')
 
 urlpatterns = [
     path('admin', admin.site.urls),
