@@ -27,7 +27,7 @@ class QueueEntry(TimeStampedModel):
         choices=STATUS_CHOICES,
         default='waiting'
     )
-
+    wait_time = models.IntegerField()
     snooze_count = models.IntegerField(default=0)
 
     started_at = models.DateTimeField(null=True, blank=True)

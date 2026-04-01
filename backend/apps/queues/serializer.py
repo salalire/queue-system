@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import QueueEntry
 from apps.services.models import Service
+from core.utils import calculate_wait_time
 
 
 class JoinQueueSerializer(serializers.ModelSerializer):
@@ -23,18 +24,18 @@ class JoinQueueSerializer(serializers.ModelSerializer):
         service_name = validated_data.pop('service_name')
         service = Service.objects.get(name__iexact=service_name)
 
-        # Get current queue length for that service
         current_queue = QueueEntry.objects.filter(
             service=service,
             status='waiting'
         ).count()
 
         position = current_queue + 1
-
+        wait_time = calculate_wait_time(service, position)
         queue_entry = QueueEntry.objects.create(
             user=user,
             service=service,
-            position=position
+            position=position,
+            wait_time=wait_time
         )
 
         return queue_entry

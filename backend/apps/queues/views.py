@@ -21,16 +21,12 @@ class QueueViewSet(viewsets.ModelViewSet):
         if serializer.is_valid():
             queue_entry = serializer.save()
 
-            wait_time = calculate_wait_time(
-                queue_entry.service,
-                queue_entry.position
-            )
 
             return Response({
                 "message": "Joined queue successfully",
                 "queue_id": queue_entry.id,
                 "position": queue_entry.position,
-                "estimated_wait_time": wait_time,
+                "estimated_wait_time": queue_entry.wait_time,
                 "status": queue_entry.status
             }, status=status.HTTP_201_CREATED)
 
